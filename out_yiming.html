@@ -1,0 +1,147 @@
+
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport"
+            content="width=350, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0, user-scalable=no;">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+        <title>郑州大学数据中台2020</title>
+        <link rel="stylesheet" type="text/css" href="https://jksb.v.zzu.edu.cn/imagesss/_xwss_2017.css">
+        <style>
+            #bak_0 {
+                MARGIN: 0 auto;
+                left: 0;
+                WIDTH: 350px;
+                min-HEIGHT: 540px;
+            }
+            .purple{
+                border: 22px solid #b926c5 !important
+            }
+            .green{
+                border: 22px solid #469142 !important
+            }
+        </style>
+    
+    </head>
+    
+    <body>
+        <div id="main"></div>
+        <script language="javascript">
+            
+                document.getElementById("main").innerHTML = `<form method="POST" name="myform52" action="">
+            <div id="bak_0">
+                <div style="WIDTH: 100%; HEIGHT: 102px;background:url(https://jksb.v.zzu.edu.cn/imagesss/title316b.png);">
+                    <div style="width:100%;height:32px;line-height:32px;text-align:right"><a
+                            href="https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/logout?ptopid=s9BEDB415940B4BD683A40A1FD02D3035"><span
+                                style="color:#00c;">〖切换账号〗</span></a>　</div>
+                </div>
+                <div style="width:100%;height:7px;BACKGROUND-IMAGE: url(https://jksb.v.zzu.edu.cn/images/split5.png)"></div>
+                <div style="WIDTH: 100%; HEIGHT: 90px;">
+                    <div style="width:100%;height:32%;line-height:32px;text-align:left;"><span
+                            style="font-size:12px;color:#333;">获取时间：</span><span id="time"
+                            style="font-size:16px;color:#a0a;">11月19日
+                            19:30　</span>
+                        <span style="text-align: right">
+                            <span style=" font-size:12px;color:#333;">有效期剩余 </span><span id="count"
+                                style="font-size:22px;color:#c00;font-weight:500;font-family:黑体;"><span
+                                    id="min">9分</span><span id="sec">59秒</span></span>
+                        </span></div>
+                    <div style="width:100%;height:7px;BACKGROUND-IMAGE: url(https://jksb.v.zzu.edu.cn/images/split5.png)">
+                    </div>
+                    <div
+                        style="width:100%;min-height:25px;line-height:25px;font-size:18px;color:#00c;font-weight:500;font-family:黑体;">
+                        　<span style="color:#00a"><span id="yuan"> </span> <span id="name"></span></span><br>　通行信息： <span
+                            id="qu"> </span>大门<span id="door"> </span>.<span id="kou">出口</span><br>　出入身份：<span id="sf">请假被批准的学生</span></div>
+                    
+                    <div id="border" style="width:100%;min-height:25px;line-height:25px;font-size:14px;color:#333;text-align:center;box-sizing: border-box;">
+                        <!-- 350*350 -->
+                        <img id="img" src="file:E:/Desktop/1.jpg//" style="width:297px;border:0px;"></div>
+                    <div style="width:100%;height:7px;BACKGROUND-IMAGE: url(https://jksb.v.zzu.edu.cn/images/split5.png)">
+                    </div>
+                    
+                    <div style="width:100%;min-height:18px;line-height:18px;font-size:12px;color:#666;text-align:center">
+                        郑州大学疫情防控领导小组、保卫处、信息化办公室</div>
+    
+                </div>
+    
+    
+            </div>
+        </form>`
+                if(window.localStorage.sf == "请假生"){
+                    document.getElementById("sf").innerHTML = "请假被批准的学生"
+                }else{
+                    document.getElementById("sf").innerHTML = window.localStorage.sf;
+                }
+                document.getElementById("kou").style.backgroundColor = '#be37cb'
+                    document.getElementById("kou").style.color = '#f9e0ab'
+                    
+                    
+                    document.getElementById("border").style.border = "22px solid #fcedfe"
+                    setInterval(() => {
+                        document.getElementById("border").classList.add("purple")
+                    }, 3000);
+                    setTimeout(() => {
+                        setInterval(() => {
+                            document.getElementById("border").classList.remove("purple")
+                        }, 3000);
+                    }, 1000);
+                /*if (window.localStorage.kou == "出口") {
+                    
+                    
+                } else {
+                    document.getElementById("kou").style.backgroundColor = '#469142'
+                    document.getElementById("kou").style.color = '#f9e0ab'
+                    document.getElementById("border").style.border = "22px solid #cef5d0"
+                    setInterval(() => {
+                        document.getElementById("border").classList.add("green")
+                    }, 3000);
+                    setTimeout(() => {
+                        setInterval(() => {
+                            document.getElementById("border").classList.remove("green")
+                        }, 3000);
+                    }, 1000);
+                }*/
+            
+            var localTime = new Date();
+            var month = localTime.getMonth() + 1;
+            var day = localTime.getDate();
+            var hour = localTime.getHours();
+            var min = localTime.getMinutes();
+            var time = document.getElementById("time");
+            if (min < 10) min = '0' + min
+            if (month < 10) month = '0' + month
+            if (hour < 10) hour = '0' + hour
+            time.innerHTML = month + '月' + day + '日 ' + hour + ':' + min + '     ';
+            console.log(localTime)
+    
+    
+            var Mcount = 9;
+            var Scount = 60;
+            setInterval(function () {
+                Mcount--
+                document.getElementById("min").innerHTML = Mcount + '分'
+            }, 1000 * 60)
+            setInterval(function () {
+                if (Scount <= 1) Scount = 59;
+                Scount--;
+                document.getElementById("sec").innerHTML = Scount + '秒';
+            }, 1000);
+    
+            document.getElementById("name").innerHTML = "袁艺鸣";
+            document.getElementById("qu").innerHTML = "主校区";
+            document.getElementById("yuan").innerHTML = "水利学院";
+            document.getElementById("door").innerHTML = "东门";
+            document.getElementById("kou").innerHTML = "出口";
+            document.getElementById("sf").innerHTML = "请假被批准的学生"
+    
+    
+            var dataImage = "./yiming.jpeg";
+            bannerImg = document.getElementById('img');
+            bannerImg.src =   dataImage;
+    
+        </script>
+    </body>
+    
+    </html>
